@@ -1,6 +1,3 @@
-//Вычислите дробные части чисел a и b с точностью n. Выведите получившиеся числа с помощью console.log.
-//Выведите результаты их сравнения (>, <, ≥, ≤, ===, ≠) с помощью console.log.
-
 function comparisonFraction(num1, num2, precision)
 {    
     let firstFraction = Math.round(num1 % 1 * Math.pow(10,precision));
