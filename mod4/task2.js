@@ -1,7 +1,7 @@
 function createShuffledArray(count){
     let array = []
-    for(let i = 0; i < count; i++){
-        array.push(i+1);
+    for(let i = 1; i < count; i++){
+        array.push(i);
     }
     for (let i = array.length - 1; i > 0; i--) {
         let j = Math.floor(Math.random() * (i + 1));
