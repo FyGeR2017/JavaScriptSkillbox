@@ -17,4 +17,4 @@ function filter(objects, prop, value) {
     { name: 'Пётр', surname: 'Петров' }
   ];
   
-  console.log(filter(objects, 'name', 'Иван'));
+console.log(filter(objects, 'name', 'Иван'));
