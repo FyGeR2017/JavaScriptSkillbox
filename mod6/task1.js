@@ -6,7 +6,7 @@ function getOlderUser(user1, user2){
     else{
         return user2.name;
     }
-}
+};
 
 let user1={
     name: 'Игорь',
