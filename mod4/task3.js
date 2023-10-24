@@ -18,15 +18,8 @@ function createShuffledArray(len) {
     
     console.log(array)
 
-    let index = -1;
-  
-    for (let k = 0; k < array.length; k++) {
-      if (array[k] === n) {
-        index = k;
-        break;
-      }
-    }
-  
+    let index = (array.indexOf(n))
+     
     if (index >= 0) {
       return "Индекс элемента = " + index;
     } else {
