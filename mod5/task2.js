@@ -1,8 +1,8 @@
-let whiteList = ['my-email@gmail.ru', 'jsfunc@mail.ru', 'annavkmail@vk.ru', 'fullname@skill.ru', 'goodday@day.ru']
-let blackList = ['jsfunc@mail.ru','goodday@day.ru']
+let whiteList = ['my-email@gmail.ru', 'jsfunc@mail.ru', 'annavkmail@vk.ru', 'fullname@skill.ru', 'goodday@day.ru'];
+let blackList = ['jsfunc@mail.ru','goodday@day.ru'];
 
 function filter(whiteList,blackList){
-    let result = []
+    let result = [];
 
     for (let i = 0; i < whiteList.length; i++){
         if (!blackList.includes(whiteList[i])){
@@ -10,7 +10,7 @@ function filter(whiteList,blackList){
         }
     }
     
-    return result
-}
+    return result;
+};
 
-console.log(filter(whiteList,blackList))
+console.log(filter(whiteList,blackList));
