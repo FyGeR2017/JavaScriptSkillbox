@@ -1,9 +1,9 @@
 function getOlderUser(allUsers){
 
-    let olderUser = allUsers[0]
+    let olderUser = allUsers[0];
     for (let i = 1; i < allUsers.length; i++){
         if (allUsers[i].age > olderUser.age){
-            olderUser = allUsers[i]
+            olderUser = allUsers[i];
         }
     }
     return olderUser.name
@@ -15,6 +15,6 @@ let allUsers=[
     {name: 'Рома', age: 21},
     {name: 'Надя', age: 34},
     {name: 'Антон', age: 7}
-   ]
+   ];
 
-console.log(getOlderUser(allUsers))
+console.log(getOlderUser(allUsers));
