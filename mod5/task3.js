@@ -11,7 +11,7 @@ function arrSort(array){
     }
     
     return array;
-};
+}
 
 console.log(arrSort([1,2,3,4,5]));
 console.log(arrSort([3,12,33,44,100]));
