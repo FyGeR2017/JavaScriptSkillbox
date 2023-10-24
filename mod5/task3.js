@@ -9,6 +9,7 @@ function arrSort(array){
             }
         }        
     }
+    
     return array;
 }
 
