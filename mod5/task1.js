@@ -1,6 +1,7 @@
 let currentYear = 2023
 
-function getAge(birthYear){   
+function getAge(birthYear){  
+    
     return currentYear - birthYear;
 }
 
