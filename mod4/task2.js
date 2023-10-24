@@ -1,6 +1,6 @@
 function createShuffledArray(count){
     let array = []
-    for(let i = 1; i < count; i++){
+    for(let i = 1; i <= count; i++){
         array.push(i);
     }
     for (let i = array.length - 1; i > 0; i--) {
