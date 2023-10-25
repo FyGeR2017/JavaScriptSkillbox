@@ -3,9 +3,8 @@ function getOlderUser(user1, user2){
     if (user1.age > user2.age){
         return user1.name;
     }
-    else{
-        return user2.name;
-    }
+    
+    return user2.name;    
 }
 
 let user1={
