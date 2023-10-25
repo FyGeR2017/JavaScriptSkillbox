@@ -1,14 +1,6 @@
 function filter(objects, prop, value) {
 
-    let filtered = [];
-  
-    for (let obj of objects) {
-      if (obj[prop] === value) {
-        filtered.push(obj); 
-      }
-    }
-  
-    return filtered;
+    return objects.filter(obj => obj[prop] === value);
   }
 
   let objects = [
