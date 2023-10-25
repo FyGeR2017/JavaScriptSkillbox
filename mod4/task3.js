@@ -22,9 +22,9 @@ function createShuffledArray(len) {
      
     if (index >= 0) {
       return "Индекс элемента = " + index;
-    } else {
-      return 'Элемент не найден';
-    }
+    } 
+    return 'Элемент не найден';
+    
   }
 
 console.log(findIndex(createShuffledArray(5),3))
