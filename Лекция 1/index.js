@@ -26,8 +26,9 @@ function doStep(target) {
 }
 
 function init(e) {
-    const curField = e.target.closest('.field');   
-    if (!curField.classList.contains('x','o')) {
+    const curField = e.target.closest('.field');
+    // в contains нельзя передать два аргумента, будет работать только первый (исправил ошибку в лекции)
+    if (!curField.classList.contains('x') && !curField.classList.contains('o')) {
         doStep(e.target);
         stepCross = !stepCross
         count++;
