@@ -37,7 +37,7 @@ function init(e) {
 }
 
 function newGame() {
-    res.innerHTML = '';
+    res.innerHTML = '&nbsp';
     stepCross = true;
     count = 0;
     Array.from(fields).forEach(el => {
