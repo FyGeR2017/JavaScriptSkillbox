@@ -15,12 +15,10 @@ function checkGameOver() {
         console.log("Congratulations! You have won the game!");
         redirectToPage("victory.html", "Victory! You won the game.");
         disableArrowKeys();
-        // Perform victory actions
     } else if (grid.checkDefeat()) {
         console.log("Game over! You have been defeated.");
         redirectToPage("defeat.html", "Defeat! You lost the game.");
         disableArrowKeys();
-        // Perform defeat actions
     }
 }
 
