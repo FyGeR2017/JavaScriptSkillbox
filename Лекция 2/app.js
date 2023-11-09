@@ -14,11 +14,9 @@ function checkGameOver() {
     if (grid.checkVictory()) {
         console.log("Congratulations! You have won the game!");
         redirectToPage("victory.html", "Victory! You won the game.");
-        disableArrowKeys();
     } else if (grid.checkDefeat()) {
         console.log("Game over! You have been defeated.");
         redirectToPage("defeat.html", "Defeat! You lost the game.");
-        disableArrowKeys();
     }
 }
 
@@ -27,11 +25,6 @@ function redirectToPage(page, message) {
     const url = `${page}?message=${encodedMessage}`;
     window.location.href = url;
 }
-
-function disableArrowKeys() {
-    document.removeEventListener("keydown", handleKeyPress);
-}
-
 
 function handleInput(event) {
     switch (event.key) {
