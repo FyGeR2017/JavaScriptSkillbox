@@ -25,19 +25,19 @@ export class Grid{
     checkVictory() {
         for (const cell of this.cells) {
             if (cell.linkedTile && cell.linkedTile.value === 2048) {
-                return true; // Victory condition met
+                return true; 
             }
         }
-        return false; // Victory condition not met
+        return false; 
     }
 
     checkDefeat() {
         for (const cell of this.cells) {
             if (cell.isEmpty()) {
-                return false; // At least one empty cell found, not defeated yet
+                return false; 
             }
         }
-        return true; // All cells are occupied, defeat condition met
+        return true;
     }
 
     groupCellsByColumn() {
