@@ -12,18 +12,11 @@ document.addEventListener('keydown', handleInput);
 
 function checkGameOver() {
     if (grid.checkVictory()) {
-        console.log("Congratulations! You have won the game!");
-        redirectToPage("victory.html", "Victory! You won the game.");
-    } else if (grid.checkDefeat()) {
-        console.log("Game over! You have been defeated.");
-        redirectToPage("defeat.html", "Defeat! You lost the game.");
-    }
-}
+        window.location.href = "victory.html"
 
-function redirectToPage(page, message) {
-    const encodedMessage = encodeURIComponent(message);
-    const url = `${page}?message=${encodedMessage}`;
-    window.location.href = url;
+    } else if (grid.checkDefeat()) {
+        window.location.href = "defeat.html"
+    }
 }
 
 function handleInput(event) {
