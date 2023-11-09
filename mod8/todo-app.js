@@ -54,21 +54,24 @@
                 tasks.forEach((task) => {
                     const todoItem = createTodoItem(task.id, task.name, task.done);
                     todoList.append(todoItem.item);
+                    if (task.done) {
+                        todoItem.item.classList.add('list-group-item-success');
+                    }
                     todoItem.doneButton.addEventListener('click', () => {
                         todoItem.item.classList.toggle('list-group-item-success');
                         task.done = !task.done;
                         saveTasksToLocalStorage();
-                    })
+                    });
                     todoItem.deleteButton.addEventListener('click', () => {
                         if (confirm('Вы уверены?')) {
                             todoItem.item.remove();
                             tasks = tasks.filter((t) => t.id !== task.id);
                             saveTasksToLocalStorage();
                         }
-                    })
-                })
+                    });
+                });
             }
-        }
+        };
         loadTasksFromLocalStorage();
         form.addEventListener('submit', (e) => {
             e.preventDefault();
