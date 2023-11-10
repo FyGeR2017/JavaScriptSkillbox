@@ -88,8 +88,8 @@
             };
             tasks.push(task);
             saveTasksToLocalStorage();
-            todoItem.doneButton.addEventListener('click', toggleTaskStatus.bind(todoItem, task));
-            todoItem.deleteButton.addEventListener('click', deleteTask.bind(todoItem, task));
+            todoItem.doneButton.addEventListener('click', toggleTaskStatus.bind(null, todoItem, task));
+            todoItem.deleteButton.addEventListener('click', deleteTask.bind(null, todoItem, task));
             input.value = '';
             button.disabled = true;
             return false;
