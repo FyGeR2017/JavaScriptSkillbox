@@ -1,5 +1,6 @@
 (function() {
     let tasks = [];
+    const listName = 'todoList'; // Specify the list name for local storage
     const createAppTitle = (title) => {
         const appTitle = document.createElement('h2');
         appTitle.textContent = title;
@@ -34,7 +35,7 @@
         list.classList.add('list-group');
         return list;
     }
-    const createTodoApp = (container, title, listName) => {
+    const createTodoApp = (container, title) => {
         const todoAppTitle = createAppTitle(title);
         const {
             form,
@@ -57,26 +58,27 @@
                     if (task.done) {
                         todoItem.item.classList.add('list-group-item-success');
                     }
-                    todoItem.doneButton.addEventListener('click', () => {
-                        todoItem.item.classList.toggle('list-group-item-success');
-                        task.done = !task.done;
-                        saveTasksToLocalStorage();
-                    });
-                    todoItem.deleteButton.addEventListener('click', () => {
-                        if (confirm('Вы уверены?')) {
-                            todoItem.item.remove();
-                            tasks = tasks.filter((t) => t.id !== task.id);
-                            saveTasksToLocalStorage();
-                        }
-                    });
+                    todoItem.doneButton.addEventListener('click', toggleTaskStatus.bind(null, todoItem, task));
+                    todoItem.deleteButton.addEventListener('click', deleteTask.bind(null, todoItem, task));
                 });
             }
         };
-        loadTasksFromLocalStorage();
-        form.addEventListener('submit', (e) => {
+        const toggleTaskStatus = (todoItem, task) => {
+            todoItem.item.classList.toggle('list-group-item-success');
+            task.done = !task.done;
+            saveTasksToLocalStorage();
+        }
+        const deleteTask = (todoItem, task) => {
+            if (confirm('Вы уверены?')) {
+                todoItem.item.remove();
+                tasks = tasks.filter((t) => t.id !== task.id);
+                saveTasksToLocalStorage();
+            }
+        }
+        const addTask = (e) => {
             e.preventDefault();
             if (!input.value) return false;
-            const id = tasks.length + 1;
+            const id = tasks.length > 0 ? tasks[tasks.length - 1].id + 1 : 1;
             const todoItem = createTodoItem(id, input.value, false);
             todoList.append(todoItem.item);
             const task = {
@@ -86,24 +88,14 @@
             };
             tasks.push(task);
             saveTasksToLocalStorage();
-            todoItem.doneButton.addEventListener('click', () => {
-                todoItem.item.classList.toggle('list-group-item-success');
-                const taskIndex = tasks.findIndex((t) => t.id === task.id);
-                if (taskIndex !== -1) tasks[taskIndex].done = !tasks[taskIndex].done;
-                saveTasksToLocalStorage();
-            })
-            todoItem.deleteButton.addEventListener('click', () => {
-                if (confirm('Вы уверены?')) {
-                    todoItem.item.remove();
-                    const taskIndex = tasks.findIndex((t) => t.id === task.id);
-                    if (taskIndex !== -1) tasks.splice(taskIndex, 1);
-                    saveTasksToLocalStorage();
-                }
-            })
+            todoItem.doneButton.addEventListener('click', toggleTaskStatus.bind(null, todoItem, task));
+            todoItem.deleteButton.addEventListener('click', deleteTask.bind(null, todoItem, task));
             input.value = '';
             button.disabled = true;
             return false;
-        })
+        }
+        form.addEventListener('submit', addTask);
+        loadTasksFromLocalStorage();
     }
     const createTodoItem = (id, name, done) => {
         const item = document.createElement('li');
@@ -126,4 +118,4 @@
         }
     }
     window.createTodoApp = createTodoApp;
-})()
+})();
